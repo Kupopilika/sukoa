@@ -39,13 +39,14 @@ ActiveRecord::Schema.define(version: 2020_06_16_143945) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.integer "goal_score"
+    t.integer "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "players", force: :cascade do |t|
     t.string "name"
-    t.integer "current_score"
+    t.integer "current_score", default: 0
     t.boolean "winner", default: false
     t.bigint "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
