@@ -6,8 +6,19 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  width: 100%;
 }
 
 .btn-ghost:hover {
   opacity: 1;
+}
+
+.centerbutton {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.centertitle {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
 }
