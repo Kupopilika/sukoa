@@ -1,6 +1,9 @@
-<%= simple_form_for [@game] do |f| %>
-<%= f.input :name, label: "Nom", placeholder: "Cette fois c'est la bonne !" %>
-<%= f.input :goal_score, label: "Score à atteindre", placeholder: "42" %>
-<%= f.input :number, collection: 2..6, label: "Nombre de joueurs" %>
-<%= f.button :submit, "Zest bartiii !", class: "btn btn-success center-button"%>
-<% end %>
+<div class="mt-5">
+  <%= simple_form_for [@game] do |f| %>
+  <%= f.input :name, label: "Nom", placeholder: "Cette fois c'est la bonne !" %>
+  <%= f.input :goal_score, label: "Score à atteindre", placeholder: "42" %>
+  <%= f.input :number, collection: 2..6, label: "Nombre de joueurs", id: "nombre" %>
+  <%= render 'players/new' %>
+  <%= f.button :submit, "Zest bartiii !", class: "btn btn-success center-button"%>
+  <% end %>
+</div>
