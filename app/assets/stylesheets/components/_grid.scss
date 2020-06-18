@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns : 1fr 1fr 1fr;
+}
+
+.grid-element {
+  font-size: 25px;
+  padding: 4px;
+  border-left: 2px solid #dfdfdf;
+  &:nth-child(1) {
+      border-left: none;
+    }
+  }

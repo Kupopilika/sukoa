@@ -12,8 +12,11 @@
   </head>
 
   <body class="container">
+    <div class="mt-5"><%= link_to root_path do %>
+    <%= cl_image_tag "https://res.cloudinary.com/kupopilika/image/upload/v1592317254/Sukoa/sukoa_favicon.png", class: "avatar"%>
+    <% end %>
+    </div>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
   </body>
 </html>

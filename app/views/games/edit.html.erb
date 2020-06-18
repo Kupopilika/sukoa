@@ -1,6 +1,11 @@
-<h1 class="mt-5"><%= @game.name %></h1>
+<h1 class="mt-5 mb-5"><%= @game.name %></h1>
+<h2 class="mt-5 mb-5"><%= @game.goal_score %></h2>
+<div class="grid">
 <% @players.each do |player| %>
-<div>
-  <%= player.name %>
-</div>
+  <div class="grid-element"><h3><%= player.name %></h3>
+    <%= player.current_score %>
+    <br>
+  </div>
 <% end %>
+</div>
+
