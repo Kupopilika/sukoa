@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    @player.game_id = @game
+    @player.game = Game.find(params[:game_id])
     @player.save!
   end
 
