@@ -1,8 +1,14 @@
-<% @game.number.times do %>
 <div class="grid">
-<%= simple_form_for ([@game, @player]) do |f| %>
+<% @game.number.times do %>
+<div class="gridelement"> <%= simple_form_for ([@game, @player]) do |f| %>
 <%= f.input :name, label: "Nom", placeholder: "Sarah Connor" %>
 <%= f.button :submit, "Je veux jouer !", class: "btn btn-success center-button"%>
 <% end %>
 </div>
 <% end %>
+</div>
+
+<div class="centerbutton">
+  <div></div>
+  <div><%= link_to "Commencer une partie !", edit_game_path(@game), class: "btn btn-ghost" %></div>
+</div>

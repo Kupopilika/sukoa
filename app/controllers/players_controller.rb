@@ -5,9 +5,9 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(params[player_params])
+    @player = Player.new(player_params)
     @player.game_id = @game
-    @player.save
+    @player.save!
   end
 
   private
