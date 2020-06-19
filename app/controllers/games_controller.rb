@@ -7,8 +7,8 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(params[game_params])
-    @game.save
-    redirect_to edit_game_path(@game)
+    @game.save!
+    redirect_to new_game_player_path(@game)
   end
 
   def edit
@@ -22,6 +22,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :goal_score, :number, :player_id)
+    params.require(:game).permit(:name, :goal_score, :number)
   end
 end

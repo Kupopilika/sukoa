@@ -1,0 +1,8 @@
+<% @game.number.times do %>
+<div class="grid">
+<%= simple_form_for ([@game, @player]) do |f| %>
+<%= f.input :name, label: "Nom", placeholder: "Sarah Connor" %>
+<%= f.button :submit, "Je veux jouer !", class: "btn btn-success center-button"%>
+<% end %>
+</div>
+<% end %>
