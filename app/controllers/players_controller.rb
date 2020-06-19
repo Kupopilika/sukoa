@@ -7,7 +7,10 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     @player.game = Game.find(params[:game_id])
-    @player.save!
+    if @player.save
+    else
+      render 'create'
+    end
   end
 
   private
