@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def new
     @game = Game.new
@@ -14,15 +13,7 @@ class GamesController < ApplicationController
     end
   end
 
-  def edit
-    @players = Player.where(game_id: @game)
-  end
-
   private
-
-  def set_game
-    @game = Game.find(params[:id])
-  end
 
   def game_params
     params.require(:game).permit(:name, :goal_score, :number)
