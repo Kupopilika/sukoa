@@ -1,5 +1,5 @@
 <div class="gridelement"> <%= simple_form_for ([@game, @player]) do |f| %>
-<%= f.input :name, label: "Nom", placeholder: "Sarah Connor" %>
+<%= f.input :name, label: "Nom", placeholder: "Sarah Connor", required: true %>
 <%= f.button :submit, "Je veux jouer !", class: "btn btn-success center-button"%>
 <% end %>
 </div>
