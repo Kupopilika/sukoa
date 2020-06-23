@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  before_action :set_game, only: [:new, :edit, :update]
+  before_action :set_game, only: %I[new editscore updatescore]
 
   def new
     @player = Player.new
@@ -11,11 +11,19 @@ class PlayersController < ApplicationController
     @player.save
   end
 
-  def edit
-    @players = Player.where(game_id: @game)
+  def editscore
+    @players = Player.where(game: @game)
   end
 
-  def update
+  def updatescore
+    set_player
+    new_score = @player.current_score += score_params[:score_made].to_i
+    if @player.update(score_made: new_score)
+      redirect_to game_edit_players_path(@game)
+    else
+      @players = Player.where(game: @game)
+      render :editscore, alert: "You cocktail isn't complete !"
+    end
   end
 
   private
@@ -24,7 +32,15 @@ class PlayersController < ApplicationController
     @game = Game.find(params[:game_id])
   end
 
+  def set_player
+    @player = Player.find(params[:player_id])
+  end
+
+  def score_params
+    params.require(:player).permit(:score_made)
+  end
+
   def player_params
-    params.require(:player).permit(:name, :game_id)
+    params.require(:player).permit(:name, :game_id, :current_score, :score_made)
   end
 end

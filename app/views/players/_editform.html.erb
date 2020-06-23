@@ -1,0 +1,4 @@
+<%= simple_form_for [@game, player], method: :patch do |f| %>
+  <%= f.input :score_made, label: "Score", placeholder: "42", required: true %>
+  <%= f.submit "Let's go", class: "btn btn-success center-button"%>
+<% end %>
