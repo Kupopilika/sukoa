@@ -12,7 +12,8 @@ class PlayersController < ApplicationController
   end
 
   def editscore
-    @players = Player.where(game: @game).sort_by { |hsh| hsh[:id] }
+    @players = Player.where(game: @game)
+                     .order(:name)
   end
 
   def updatescore
