@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
   end
 
   def editscore
-    @players = Player.where(game: @game)
+    @players = Player.where(game: @game).sort_by { |hsh| hsh[:id] }
   end
 
   def updatescore
@@ -22,7 +22,7 @@ class PlayersController < ApplicationController
       redirect_to game_edit_players_path(@game)
     else
       @players = Player.where(game: @game)
-      render :editscore, alert: "You cocktail isn't complete !"
+      render :editscore, alert: "Your cocktail isn't complete !"
     end
   end
 
