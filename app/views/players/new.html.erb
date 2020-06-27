@@ -1,10 +1,12 @@
-<div class="grid">
-<% @game.number.times do %>
-<%= render "form" %>
-<% end %>
-</div>
+<div class="new-players-container d-flex flex-column justify-content-center">
+  <div class="grid">
+    <% @game.number.times do %>
+    <%= render "form" %>
+  <% end %>
+  </div>
 
-<div class="centerbutton">
-  <div></div>
-  <div><%= link_to "Commencer une partie !", game_edit_players_path(@game), class: "btn btn-ghost" %></div>
+  <div class="centerbutton">
+    <div></div>
+    <div><%= link_to "Commencer une partie !", game_edit_players_path(@game), class: "btn btn-ghost" %></div>
+  </div>
 </div>

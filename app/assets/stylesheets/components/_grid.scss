@@ -8,6 +8,21 @@
   padding: 4px;
   border-left: 2px solid #dfdfdf;
   &:nth-child(1) {
-      border-left: none;
-    }
+    border-left: none;
   }
+}
+
+.score-line {
+  display: grid;
+  grid-template-columns : 60% 25% 15%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns : 60% 40%;
+  margin-bottom: 1rem;
+}
+
+div.form-group {
+  margin-bottom: 0;
+}
