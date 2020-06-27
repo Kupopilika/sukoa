@@ -19,7 +19,8 @@ class PlayersController < ApplicationController
   def updatescore
     set_player
     new_score = @player.current_score += score_params[:score_made].to_i
-    if @player.update(score_made: new_score)
+    @history = "#{@player.history}" + ",#{score_params[:score_made].to_i}"
+    if @player.update(score_made: new_score, history: @history)
       redirect_to game_edit_players_path(@game)
     else
       @players = Player.where(game: @game)

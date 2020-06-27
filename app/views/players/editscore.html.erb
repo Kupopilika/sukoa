@@ -3,13 +3,15 @@
 <div class="grid">
 <% @players.each do |player| %>
   <div class="grid-element"><h3><%= player.name %></h3>
-    <%= player.current_score %>
     <%= simple_form_for [@game, player], remote: true, method: :patch, url: game_updatescore_path(@game, player) do |f| %>
       <%= f.input :score_made, as: :integer, label: "Score", placeholder: 42, required: true, input_html: {value: 0 } %>
       <%= f.submit "Let's go", class: "btn btn-success center-button"%>
     <% end %>
-    <%= @new_score %>
     <br>
+    <% player.history.split(",").each do |number| %>
+    <%= number %><br>
+    <% end %>
+    <%= player.current_score %>
   </div>
 <% end %>
 </div>

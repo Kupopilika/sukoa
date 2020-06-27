@@ -5,6 +5,7 @@ class CreatePlayers < ActiveRecord::Migration[6.0]
       t.integer :current_score, default: 0
       t.integer :score_made, default: 0
       t.boolean :winner, default: false
+      t.string :history, default: "0"
       t.references :game, null: false, foreign_key: true
 
       t.timestamps

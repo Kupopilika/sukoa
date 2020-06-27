@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_143945) do
     t.integer "current_score", default: 0
     t.integer "score_made", default: 0
     t.boolean "winner", default: false
+    t.string "history", default: "0"
     t.bigint "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
