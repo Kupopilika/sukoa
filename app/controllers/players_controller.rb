@@ -13,7 +13,7 @@ class PlayersController < ApplicationController
 
   def editscore
     @players = Player.where(game: @game)
-                     .order(:name)
+                     .order(:name, :id)
   end
 
   def updatescore
