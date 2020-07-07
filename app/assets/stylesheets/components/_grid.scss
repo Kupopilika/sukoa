@@ -1,15 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns : 1fr 1fr 1fr;
-}
-
-.grid-element {
-  font-size: 25px;
-  padding: 4px;
-  border-left: 2px solid #dfdfdf;
-  &:nth-child(1) {
-    border-left: none;
-  }
+  grid-gap: 1rem;
 }
 
 .score-line {
@@ -25,4 +17,33 @@
 
 div.form-group {
   margin-bottom: 0;
+}
+
+.grid-element {
+  font-size: 25px;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.grid-color0 {
+  background-color: #a0c4ff;
+}
+
+.grid-color1 {
+  background-color: #bdb2ff;
+}
+
+.grid-color2 {
+  background-color: #ffc6ff;
+}
+.grid-color3 {
+  background-color: #fdffb6;
+}
+
+.grid-color4 {
+  background-color: #caffbf;
+}
+
+.grid-color5 {
+ background-color: #9bf6ff;
 }

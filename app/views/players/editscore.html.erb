@@ -1,23 +1,21 @@
 <h1 class="mt-5 mb-5"><%= @game.name %></h1>
 <h2 class="mt-5 mb-5"><%= @game.goal_score %></h2>
 <div class="grid">
-<% @players.each do |player| %>
-  <div class="grid-element"><h3><%= player.name %></h3>
+<% @players.each.with_index do |player, i| %>
+  <div class="grid-element grid-color<%=i%6%>"><h3><%= player.name %></h3>
     <%= player.current_score %>
     <%= simple_form_for [@game, player], remote: true, method: :patch, url: game_updatescore_path(@game, player) do |f| %>
       <%= f.input :score_made, as: :integer, label: "Score", placeholder: 42, required: true, input_html: {value: 0 } %>
-      <%= f.submit "Let's go", class: "btn btn-success center-button"%>
+      <%= f.submit "Let's go", class: "btn btn-ghost"%>
     <% end %>
     <br>
     <% sum = 0 %>
     <% player.history.split(",").each do |number| %>
-  <div class="score-line w-100">
-
-    <div><%= number %></div>
-    <span>Total: </span>
-    <div><%= sum += number.to_i %></div>
-  </div>
-
+      <div class="score-line w-100">
+        <div><%= number %></div>
+        <span>Total: </span>
+        <div><%= sum += number.to_i %></div>
+      </div>
     <% end %>
   </div>
 <% end %>
